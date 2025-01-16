@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-* {font-family: 'Inter';}
+/* * {font-family: 'Inter';} */
 
 
 /* --- Home page styles --- */
@@ -116,4 +116,4 @@ ul {
 /* --- Hide Streamlit default elements --- */
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}
-/* footer {visibility: hidden;} */
+footer {visibility: hidden;}

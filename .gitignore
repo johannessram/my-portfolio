@@ -2,5 +2,4 @@
 .vscode
 __pycache__
 assets/*.pdf
-assets/*.png
-assets/*.jpg
+assets/profile_squared.jpg

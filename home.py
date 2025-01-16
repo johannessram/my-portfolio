@@ -1,14 +1,20 @@
 import streamlit as st
 import base64
+from about_me import about_me
+from skills import skills
+from experience import experience
+from contact_me import contact_me
 
 def home():
 
     # Page configs (tab title, favicon)
     st.set_page_config(
         page_title="Johanness Ramiandrisoa's Portfolio",
-        page_icon="🍕",
+        page_icon="🚀",
+        # layout="wide",
     )
 
+        
     # CSS styles file
     with open("styles/main.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -25,27 +31,27 @@ def home():
     st.write(f"""<div class="title">Hi! My name is <strong>Johanness Ramiandrisoa</strong> 👋</div>""", unsafe_allow_html=True)
 
     # Profile image
-    st.write(f"""
-    <div class="container">
-        <div class="box">
-            <div class="spin-container">
-                <div class="shape">
-                    <div class="bd">
-                        <img src="{img}" alt="Johanness Ramiandrisoa">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, 
-    unsafe_allow_html=True)
+    # st.write(f"""
+    # <div class="container">
+    #     <div class="box">
+    #         <div class="spin-container">
+    #             <div class="shape">
+    #                 <div class="bd">
+    #                     <img src="{img}" alt="Johanness Ramiandrisoa">
+    #                 </div>
+    #             </div>
+    #         </div>
+    #     </div>
+    # </div>
+    # """, 
+    # unsafe_allow_html=True)
 
     # Alternative image (static and rounded) uncomment it if you prefer this one
-    # st.write(f"""
-    # <div style="display: flex; justify-content: center;">
-    #    <img src="{img}" alt="Johanness Ramiandrisoa" width="300" height="300" style="border-radius: 50%; object-fit: cover; margin-top: 40px; margin-bottom: 40px;">
-    # </div>
-    # """, unsafe_allow_html=True)
+    st.write(f"""
+    <div style="display: flex; justify-content: center;">
+       <img src="{img}" alt="Johanness Ramiandrisoa" width="300" height="300" style="border-radius: 50%; object-fit: cover; margin-top: 40px; margin-bottom: 40px;">
+    </div>
+    """, unsafe_allow_html=True)
     
     # Subtitle
     st.write(f"""<div class="subtitle" style="text-align: center;">AI Research Engineer</div>""", unsafe_allow_html=True)
@@ -66,41 +72,18 @@ def home():
     </div>""", 
     unsafe_allow_html=True)
 
-    st.write("##")
-    # About me section
-    st.subheader("About Me")
-    st.write("""
-    <p class="justify-text">Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.</p>
-    """, unsafe_allow_html=True)
 
-    # Download CV button
-    st.download_button(
-        label="📄 Download my CV",
-        data=pdf_bytes,
-        file_name="JohannessCV.pdf",
-        mime="application/pdf",
-    )
+    # _, main_col, _ = st.columns([0.05, 0.9, 0.05])
 
-    st.write("##")
-    # Experience section
-    st.subheader("Experience")
-    st.write("""
-    <p class="justify-text">Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.</p>
-    """, unsafe_allow_html=True)
+    # with main_col:
+    with st.container():
+        about_me()
+        skills()
+        experience()
+        contact_me()
 
-    st.write("##")
-    # Skills section
-    st.subheader("Skills")
-    st.write("""
-    <p class="justify-text">Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.</p>
-    """, unsafe_allow_html=True)
-
-    st.write("##")
-    # About me section
-    st.subheader("Experience")
-    st.write("""
-    <p class="justify-text">Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.</p>
-    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
+    if isinstance(st.session_state.get("project_index", "nothing"), str) :
+        st.session_state['project_index'] = 0
     home()
