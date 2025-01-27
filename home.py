@@ -3,7 +3,7 @@ import base64
 from SimpleSection import SimpleSection
 from WithDownloadButtonSection import WithDownloadButtonSection
 from UnorderedListSection import UnorderedListSection
-from constants import project_image_paths, project_titles, project_descriptions
+from constants import project_image_paths, project_titles, project_descriptions, about_me, portfolio_motivation, programme_description, portfolio_goal, programme_description
 from WithCardsSection import WithCardsSection
 
 
@@ -77,29 +77,33 @@ def home():
 
     with st.container():
         WithDownloadButtonSection(
-            section_title="Section 1",
-            content="""
-            Who am I ?
-            I am Johanness, passionate about AI. I decided to do my first internship in that field at @LIAM until my position evolved to being an AI Research Engineer. Fast forward to now, I am pursuing a Master’s degree in AI at @ENI.            """,
+            section_title=about_me["section_title"],
+            content=about_me["content"],
             server_file_path="assets/JohannessCV.pdf"
         )
+        # portfolio_motivation, programme_description, portfolio_goal, programme_description
         SimpleSection(
-            section_title="Section 2",
-            content="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+            section_title=portfolio_motivation["section_title"],
+            content=portfolio_motivation["content"],
         )
         WithCardsSection(
-            section_title="Section 3",
-            content_before="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+            section_title=programme_description["section_title"],
+            content_before=programme_description["content"],
             card_titles=project_titles,
             card_image_paths=project_image_paths,
             card_descriptions=project_descriptions
         )
+        SimpleSection(
+            section_title=portfolio_goal["section_title"],
+            content=portfolio_goal["content"],
+        )
         UnorderedListSection(
-            section_title="Section 4",
-            text_before="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit.",
+            section_title=portfolio_motivation["section_title"],
+            text_before=portfolio_motivation["content"],
             content=['item 1', 'item 2', 'item 4'],
             bullet="🔸"
         )
+
 
 
 if __name__ == "__main__":
