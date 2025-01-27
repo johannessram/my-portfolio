@@ -7,15 +7,17 @@
 .title {
   text-align: center;
   font-size: 2.5em;
-  font-weight: bold;
-  color: #d6fde3;
+  /* font-weight: bold; */
+  /* color: #d6fde3; */
+  color:#003;
   margin-bottom: 5px;
 }
 
 .subtitle {
   font-size: 1.5em;
   font-weight: 500;
-  color: #d6fde3;
+  /* color: #d6fde3; */
+  color:#003;
   margin-bottom: 5px;
 }
 
