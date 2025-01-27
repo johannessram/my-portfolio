@@ -8,7 +8,6 @@ from WithCardsSection import WithCardsSection
 
 
 def home():
-
     # Page configs (tab title, favicon)
     st.set_page_config(
         page_title="Johanness Ramiandrisoa's Portfolio",
