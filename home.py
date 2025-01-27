@@ -1,9 +1,11 @@
 import streamlit as st
 import base64
-from about_me import about_me
-from skills import skills
-from experience import experience
-from contact_me import contact_me
+from SimpleSection import SimpleSection
+from WithDownloadButtonSection import WithDownloadButtonSection
+from UnorderedListSection import UnorderedListSection
+from constants import project_image_paths, project_titles, project_descriptions
+from WithCardsSection import WithCardsSection
+
 
 def home():
 
@@ -23,9 +25,6 @@ def home():
     with open("assets/profile_squared.jpg", "rb") as img_file:
         img = "data:image/jpg;base64," + base64.b64encode(img_file.read()).decode()
 
-    # PDF CV file
-    with open("assets/JohannessCV.pdf", "rb") as pdf_file:
-        pdf_bytes = pdf_file.read()
 
     # Top title
     st.write(f"""<div class="title">Hi! My name is <strong>Johanness Ramiandrisoa</strong> 👋</div>""", unsafe_allow_html=True)
@@ -76,11 +75,30 @@ def home():
     # _, main_col, _ = st.columns([0.05, 0.9, 0.05])
 
     # with main_col:
+
     with st.container():
-        about_me()
-        skills()
-        experience()
-        contact_me()
+        WithDownloadButtonSection(
+            section_title="Section 1",
+            content="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+            server_file_path="assets/JohannessCV.pdf"
+        )
+        SimpleSection(
+            section_title="Section 2",
+            content="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+        )
+        WithCardsSection(
+            section_title="Section 3",
+            content_before="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+            card_titles=project_titles,
+            card_image_paths=project_image_paths,
+            card_descriptions=project_descriptions
+        )
+        UnorderedListSection(
+            section_title="Section 4",
+            text_before="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit.",
+            content=['item 1', 'item 2', 'item 4'],
+            bullet="🔸"
+        )
 
 
 if __name__ == "__main__":
