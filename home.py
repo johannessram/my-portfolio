@@ -78,7 +78,9 @@ def home():
     with st.container():
         WithDownloadButtonSection(
             section_title="Section 1",
-            content="Lorem ipsum dolor sit amet. 33 minima exercitationem sit adipisci perspiciatis in harum velit. Est saepe eligendi aut similique animi 33 enim enim sit necessitatibus laboriosam. Et quaerat quia ea voluptatem dicta aut sunt soluta! Sit mollitia velit ut officiis debitis sed autem voluptatem et ipsa repellendus ab quia similique ut saepe quasi hic voluptatem sint.",
+            content="""
+            Who am I ?
+            I am Johanness, passionate about AI. I decided to do my first internship in that field at @LIAM until my position evolved to being an AI Research Engineer. Fast forward to now, I am pursuing a Master’s degree in AI at @ENI.            """,
             server_file_path="assets/JohannessCV.pdf"
         )
         SimpleSection(
